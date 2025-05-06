@@ -3,7 +3,7 @@ import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import {
   lineString, point
 }
-from '@turf/helpers';
+  from '@turf/helpers';
 import bearing from '@turf/bearing';
 // import centroid from '@turf/centroid';
 import center from '@turf/center';
@@ -150,7 +150,7 @@ TxRectMode.onStop = function() {
 
 // TODO why I need this?
 TxRectMode.pathsToCoordinates = function(featureId, paths) {
-  return paths.map(coord_path = > {
+  return paths.map(coord_path => {
     return {
       feature_id: featureId,
       coord_path
@@ -223,13 +223,13 @@ TxRectMode.createRotationPoints = function(state, geojson, suppPoints) {
   if (state.singleRotationPoint) {
     this._createRotationPoint(rotationWidgets, featureId, corners[0], corners[1], rotCenter, state.rotationPointRadius);
   } else {
-    corners.forEach((v2) = > {
+    corners.forEach((v2) => {
       if (v1 != null) {
-        this._createRotationPoint(rotationWidgets, featureId, v1, v2, rotCenter, state.rotationPointRadius);
-      }
+      this._createRotationPoint(rotationWidgets, featureId, v1, v2, rotCenter, state.rotationPointRadius);
+    }
 
-      v1 = v2;
-    });
+    v1 = v2;
+  });
   }
 
   return rotationWidgets;
@@ -356,7 +356,6 @@ TxRectMode.computeAxes = function(state, polygon) {
 
   // compute current distances from centers for scaling
 
-
   var scaleCenters = [];
   var distances = [];
   for (var i = 0; i < n; i++) {
@@ -393,12 +392,12 @@ TxRectMode.onDrag = function(state, e) {
   };
   if (state.selectedCoordPaths.length > 0 && state.txMode) {
     switch (state.txMode) {
-    case TxMode.Rotate:
-      this.dragRotatePoint(state, e, delta);
-      break;
-    case TxMode.Scale:
-      this.dragScalePoint(state, e, delta);
-      break;
+      case TxMode.Rotate:
+        this.dragRotatePoint(state, e, delta);
+        break;
+      case TxMode.Scale:
+        this.dragScalePoint(state, e, delta);
+        break;
     }
   } else {
     this.dragFeature(state, e, delta);
@@ -487,8 +486,8 @@ TxRectMode.dragFeature = function(state, e, delta) {
 TxRectMode.fireUpdate = function() {
   this.map.fire(Constants.events.UPDATE, {
     action: Constants.updateActions.CHANGE_COORDINATES,
-    features: this.getSelected().map(f = > f.toGeoJSON())
-  });
+    features: this.getSelected().map(f => f.toGeoJSON())
+});
 };
 
 TxRectMode.onMouseOut = function(state) {
@@ -533,4 +532,4 @@ TxRectMode.onTrash = function() {
   this.deleteFeature(this.getSelectedIds());
   // this.fireActionable();
 };
-This looks like a JavaScript file. Click this bar to format it.No 3
+This looks like a JavaScript file.Click this bar to format it.No 3
