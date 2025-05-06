@@ -532,4 +532,3 @@ TxRectMode.onTrash = function() {
   this.deleteFeature(this.getSelectedIds());
   // this.fireActionable();
 };
-This looks like a JavaScript file.Click this bar to format it.No 3
